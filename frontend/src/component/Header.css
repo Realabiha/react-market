@@ -1,0 +1,105 @@
+@media screen and (max-width: 1024px){
+  .header-menu-wrap,
+  .header-cart-wrap,
+  .header-search-wrap button
+  {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 414px){
+  /* .header-search-wrap{
+    display: none !important;
+  } */
+}
+.header{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 6rem;
+  color: #f0f0f0;
+  background: linear-gradient(to right, rgb(35, 31, 32), rgb(0, 0, 0));
+}
+.header .header-pointer{
+  cursor: pointer;
+}
+.header-menu-wrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  flex: .3 1;
+  padding: 0 1rem;
+  /* object-fit: contain; */
+  transform: rotateZ(90deg);
+}
+.header-menu-wrap:active{
+  color: var(--main-font-color);
+}
+.header-logo-wrap{
+  flex: 1.7 1;
+  /* object-fit: contain; */
+}
+.header-logo-wrap img{
+  display: inline-block;
+  max-width: 10rem;
+  height: 4rem;
+}
+.header-search-wrap{
+  display: flex;
+  justify-content: center;
+  height: 3rem;
+  flex: 8 1;
+}
+.header-search-wrap label{
+  width: 90%;
+  height: 100%;
+  display: flex;  
+  align-items: center;
+}
+.header-search-wrap input{
+  width: 80%;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 0 1rem;
+  font-size: 1.5rem;
+  flex: 1 1;
+}
+.header-search-wrap input:focus{
+  box-shadow: inset 0 0 .1rem .2rem var(--main-font-color);
+  transition: box-shdaow .5s ease-in-out;
+}
+.header-login-wrap{
+  flex: 1.5 1;
+}
+.header-login-wrap .light-warn{
+  color: var(--main-font-color);
+  background: rgba(0, 0, 0, .5);
+  cursor: pointer;
+}
+.header-login-wrap .light-warn:active{
+  box-shadow: inset 0 0 .1rem .2rem #f0f0f0;
+}
+.header-cart-wrap{
+  position: relative;
+  flex: .5 1;
+  color: #f0f0f0;
+  font-weight: bold;
+}
+.header-cart-wrap img{
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  padding: 0 1rem;
+}
+.header-cart-wrap span{
+  position: absolute;
+  left: 2.3rem;
+  top: -0.5rem;
+  text-align: center;
+  line-height: 1.2rem;
+  color: var(--main-font-color);
+  font-size: 1.5rem;
+}
+

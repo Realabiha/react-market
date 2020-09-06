@@ -1,0 +1,50 @@
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+html{
+  font-size: 62.5%;
+}
+select{
+  outline: none;
+  border: none;
+  font-size: 1.5rem;
+  background: #ccc;
+}
+.primary{
+  width: 8rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  line-height: 3rem;
+}
+.primary:hover{
+  cursor: pointer;
+}
+.price{
+  color: #f50;
+}
+button:active{
+  box-shadow: inset 0 0 .1rem .2rem var(--main-font-color);
+}
+.out-stock-warn{
+  color:var(--main-font-color);
+}
+.danger-action-warn{
+  color: #f30;
+  background: var(--main-font-color);
+}
+.danger-action-warn:hover{
+  color: #f10;
+  font-weight: bold;
+}
+:root{
+  --main-font-color: rgb(240, 192, 71);
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

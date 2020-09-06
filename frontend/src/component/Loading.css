@@ -1,0 +1,10 @@
+.common-load-wrap{
+  width: 100vw;
+  height: 100vh;
+  color: #f4f4f4;
+  text-align: center;
+  background: rgba(0, 0, 0, .5);
+}
+.common-load-wrap h1{
+  padding-top: 10rem;
+}
