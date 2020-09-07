@@ -7,7 +7,7 @@ import './Checkout.css';
 
 const Checkout = props => {
   // STORE
-  const list = Cookie.get('cart') && JSON.parse(Cookie.get('cart')) || useSelector(state => state.shoppingCart).list;
+  const list = useSelector(state => state.shoppingCart).list;
   const dispatch = useDispatch();
 
   const userInfo = Cookie.get('user') && JSON.parse(Cookie.get('user')) || null;
