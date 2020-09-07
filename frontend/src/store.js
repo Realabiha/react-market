@@ -3,12 +3,13 @@ import thunk from 'redux-thunk';
 import productListReducer from './reducer/productListReducer';
 import productDetailReducer from './reducer/productDetailReducer';
 import shoppingCartReducer from './reducer/shoppingCartReducer'; 
-import userSignInReducer from './reducer/userSignInReducer';
+import {userSignInReducer, userRegisterReducer} from './reducer/userSignInReducer';
 const reducer = combineReducers({
   productList: productListReducer,
   productDetail: productDetailReducer,
   shoppingCart: shoppingCartReducer,
-  userSignIn: userSignInReducer
+  userSignIn: userSignInReducer,
+  userRegister: userRegisterReducer
 })
 const initState = {};
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; 

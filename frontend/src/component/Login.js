@@ -39,15 +39,6 @@ const Login = props => {
     </div>
     <form onSubmit={e => handleFormSubmit(e)}>
       <h1>Login in</h1>
-      {/* <label htmlFor="name">
-        <h3>Your name</h3>
-        <input 
-          type="text" 
-          id="name" 
-          name="name" 
-          required
-        />
-      </label> */}
       <label htmlFor="email">
         <h3>Email</h3>
         <input 
@@ -66,15 +57,6 @@ const Login = props => {
           required
           placeholder="at least 6 characters" />
       </label>
-      {/* <label htmlFor="repassword">
-        <h3>Re-enter password</h3>
-        <input 
-          type="text" 
-          id="repassword" 
-          name="repassword" 
-          required
-        />
-      </label> */}
       <label htmlFor="submit">
         <input type="submit" id="submit" value="Create your account"/>
       </label>

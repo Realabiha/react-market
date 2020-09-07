@@ -17,15 +17,17 @@ router.post('/signin', async (req, res) => {
 
 router.post('/register', async (req, res) => {
   try {
-    const userInfo = await User.findOne(req.body);
-    if(userInfo) res.status(401).send('email has been registered!');
-    else{
-      const token = getJwt()(userInfo);
-      const {name, email} = userInfo;
-      res.send({name, email, token});
+    const data = {
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password
     }
+    const newUser = await User.create(data)
+    const token = getJwt()(data);
+    const {name, email} = newUser;
+    res.send({name, email, token});
   } catch (error) {
-    res.status(401).send(error.message);    
+    res.status(401).send(error.message);
   }
 })
 

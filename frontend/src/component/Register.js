@@ -1,32 +1,29 @@
 import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {signIn} from '../action/userSignInAction'
-import Cookie from 'js-cookie';
+import {register} from '../action/userSignInAction'
 import './Login.css';
 
 const Register =  props => {
   // STORE
-  const {userInfo, error}= useSelector(state => state.userSignIn);
+  const {userInfo, error}= useSelector(state => state.userRegister);
   const dispatch = useDispatch();
 
   // EVENT
   const handleFormSubmit = async e => {
     e.preventDefault();
-    const {name, email, password, repassword} = e.target;
+    const {name, email, password} = e.target;
     const data = {
       name: name.value,
       email: email.value,
       password: password.value,
-      repassword: repassword
     }
-    dispatch(signIn(data));
+    dispatch(register(data));
   }
 
   // HOOK
   useEffect(() => {
-    Cookie.set('user', JSON.stringify(userInfo));
-    userInfo && props.history.push('/');
+    userInfo && props.history.push('/login');
     return () => {
       // 
     }
