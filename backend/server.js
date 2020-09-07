@@ -9,7 +9,10 @@ const app = express();
 // post request middleware
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(__dirname, '../frontend/build')));
+console.log(__dirname, '__dirname');
+console.log(path.join(__dirname, '/../frontend/build'), 'resolve');
+
+app.use(express.static(path.resolve(__dirname, '../frontend/build')));
 
 app.use('/api/users', userRoute);
 
