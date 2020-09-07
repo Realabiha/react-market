@@ -16,7 +16,7 @@ function App() {
       <div className='app'>
         <Aside />
         <Switch>
-          <Route path="/products/:id" exact={true} component={ProductDetail}></Route>
+          <Route path="/product/:id" exact={true} component={ProductDetail}></Route>
           <Route path='/checkout'>
             <Header />
             <Checkout />

@@ -7,7 +7,7 @@ export default ({products}) => (
     <div className="product-list">
       {
         products.map((product, index) => 
-          <Link to={`/products/${product.id}`} key={index}>
+          <Link to={`/product/${product.id}`} key={index}>
             <div className="main-product-wrap">
               <div className="product-img-wrap">
                 <img src={product.img} alt=""/>
