@@ -1,12 +1,15 @@
 import express from 'express';
-import data from './mock/data';
+import path from 'path';
 import bodyParser from 'body-parser';
+import data from './mock/data';
 
 import userRoute from './routes/userRoute';
 const app = express();
 
 // post request middleware
 app.use(bodyParser.json());
+
+app.use(express.static(path.join(__dirname, '../frontend/build')));
 
 app.use('/api/users', userRoute);
 
@@ -24,6 +27,7 @@ app.get('/api/products/:id', (req, res) => {
 })
 
 
-app.listen(5000, _ => {
+const port = process.env.PORT || 5000;
+app.listen(port, _ => {
   console.log('Server is runing at 5000')
 })
