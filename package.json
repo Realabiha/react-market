@@ -31,9 +31,5 @@
   "engines": {
     "node": "12.x",
     "npm": "6.x"
-  },
-  "cacheDirectories": [
-    "node_modules",
-    "frontend/node_modules"
-  ]
+  }
 }
