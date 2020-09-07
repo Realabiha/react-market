@@ -32,9 +32,7 @@ const ProductDetail = props => {
     num = 1 * e.target.value;
   }
   const handleCartButton = ({id, stock}) => {
-    checkOutStock({list, id, num, stock}) 
-    ? alert(`商品库存${stock}`)
-    : checkShoppingCart(list, id) 
+    checkShoppingCart(list, id) 
     ? dispatch( putCartList({id, num}) ) 
     : dispatch( fetchProductInfo({id, num}) )
   }
@@ -123,10 +121,11 @@ const ProductDetail = props => {
 
 
 // helper function
-function checkOutStock({list, id, num, stock}){
-  const exist = list.find(l => l.id === id);
-  return exist && exist.num + num > stock;
-}
+// function checkOutStock({list, id, num, stock}){
+//   const exist = list.find(l => l.id === id);
+//   console.log(stock, num, exist.num);
+//   return exist && 1 * exist.num + num > stock;
+// }
 function checkShoppingCart(list, id){
   return list.map(l => l.id).some(i => i === id);
 }

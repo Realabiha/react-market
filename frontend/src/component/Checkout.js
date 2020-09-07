@@ -9,6 +9,7 @@ const Checkout = props => {
   // STORE
   const list = useSelector(state => state.shoppingCart).list;
   const dispatch = useDispatch();
+  console.log(list);
 
   const userInfo = Cookie.get('user') && JSON.parse(Cookie.get('user')) || null;
 

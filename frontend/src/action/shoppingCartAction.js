@@ -29,7 +29,6 @@ export const putCartList = ({id, num}) => {
 
 
 export const fetchProductInfo = ({id, num}) => async dispatch => {
-  console.log(`/products/${id}`)
   const res = await axios.get(`/products/${id}`);
   dispatch(addCartList({...res.data[0], num}))
 }

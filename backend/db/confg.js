@@ -14,7 +14,7 @@ mongoose.connect(
     useCreateIndex: true 
   },
   error => {
-    console.log(error, 'error');
+    console.log(error);
   }
 );
 // mongoose.connection.on("connected", () => {

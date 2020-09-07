@@ -9,7 +9,7 @@ export default function shoppingCartReducer(state = initState, action){
   let list;
   switch(type){
     case actions.ADD_CART_LIST:
-      list = [payload.product];
+      list = [...state.list, payload.product];
       Cookie.set('cart', JSON.stringify(list));
       return {...state, list: [...state.list, {...payload.product}]};
     case actions.DEL_CART_LIST:

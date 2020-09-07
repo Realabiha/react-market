@@ -9,9 +9,6 @@ const app = express();
 // post request middleware
 app.use(bodyParser.json());
 
-console.log(__dirname, '__dirname');
-console.log(path.join(__dirname, '/../frontend/build'), 'resolve');
-
 app.use(express.static(path.resolve(__dirname, '../frontend/build')));
 
 app.use('/users', userRoute);
@@ -32,5 +29,5 @@ app.get('/products/:id', (req, res) => {
 
 const port = process.env.PORT || 5000;
 app.listen(port, _ => {
-  console.log('Server is runing at 5000')
+  console.log(`Server is runing at ${port}`)
 })
