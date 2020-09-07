@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --watch backend --exec babel-node backend/server.js",
-    "build": "babel backend -d dist",
+    "dev": "nodemon --watch backend --exec babel-node backend/server.js",
+    "build": "rmdir /s /q dist && babel backend -d dist",
     "heroku-postbuild": "npm run build && cd frontend && npm install && npm run build"
   },
   "keywords": [],
@@ -16,12 +16,10 @@
     "@babel/cli": "^7.11.5",
     "@babel/core": "^7.11.5",
     "@babel/node": "^7.10.5",
-    "@babel/plugin-transform-runtime": "^7.11.5",
     "@babel/preset-env": "^7.11.5",
     "nodemon": "^2.0.4"
   },
   "dependencies": {
-    "@babel/runtime": "^7.11.2",
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
