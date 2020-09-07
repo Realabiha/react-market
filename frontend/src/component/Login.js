@@ -5,7 +5,7 @@ import {signIn} from '../action/userSignInAction'
 import Cookie from 'js-cookie';
 import './Login.css';
 
-const Login =  props => {
+const Login = props => {
   // STORE
   const {userInfo, error}= useSelector(state => state.userSignIn);
   const dispatch = useDispatch();
@@ -31,7 +31,7 @@ const Login =  props => {
   }, [userInfo, props])
 
 
-  return userInfo && <div className="login-form-wrap">
+  return <div className="login-form-wrap">
     <div className="logo-img-wrap">
       <Link to="/">
         <img src="/logo.png" alt="Amazon" title="首页"/>
@@ -80,7 +80,7 @@ const Login =  props => {
       </label>
       <hr />
       <div className="sign-in-wrap">
-        Already have an account? <Link to="/register">Sign-In</Link>
+        New to amazon? <Link to="/register">Register</Link>
       </div>
     </form>
   </div>

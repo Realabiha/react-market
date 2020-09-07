@@ -33,7 +33,7 @@ const Register =  props => {
   }, [userInfo, props])
 
 
-  return userInfo && <div className="login-form-wrap">
+  return <div className="login-form-wrap">
     <div className="logo-img-wrap">
       <Link to="/">
         <img src="/logo.png" alt="Amazon" title="首页" />

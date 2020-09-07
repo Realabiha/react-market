@@ -8,7 +8,9 @@ import Loading from './Loading';
 import { handleGoBack } from '../util';
 import './ProductDetail.css';
 
-const ProductDetail = props => {
+const ProductDetail = ({props}) => {
+  // console.log(props);
+
   // STORE
   const {detail: product, error} = useSelector(state => state.productDetail);
   const {list} = useSelector(state => state.shoppingCart);

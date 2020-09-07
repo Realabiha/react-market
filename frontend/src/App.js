@@ -16,20 +16,36 @@ function App() {
       <div className='app'>
         <Aside />
         <Switch>
-          <Route path="/product/:id" exact={true} component={ProductDetail}></Route>
+          <Route 
+            path="/product/:id" 
+            render={ _ => <ProductDetail props={_} />}
+          >
+          </Route>
           <Route path='/checkout'>
             <Header />
             <Checkout />
           </Route>
-          <Route path='/login' exact={true} component={Login}></Route>
-          <Route path='/register' exact={true} component={Register}></Route>
-          <Route path='/pay' exact={true} component={Pay}></Route>
-          <Route path='/'>
+          <Route 
+            path='/login' 
+            component={Login}
+          ></Route>
+          <Route 
+            path='/register' 
+            component={Register}
+          ></Route>
+          <Route 
+            path='/pay' 
+            component={Pay}
+          ></Route>
+          <Route 
+            path='/' 
+            exact={true}
+          >
             <Header />
             <Main />
-            <Footer />
           </Route>
         </Switch>
+        <Footer />
       </div>
     </Router>
   );
