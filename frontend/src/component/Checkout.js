@@ -12,6 +12,9 @@ const Checkout = props => {
 
   const userInfo = Cookie.get('user') && JSON.parse(Cookie.get('user')) || null;
 
+  // HOOK
+  
+
   // EVENT
   const handleNumChange = ({e, id}) => {
     dispatch(putCartList({id, num: e.target.value}))
