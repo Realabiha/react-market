@@ -14,14 +14,14 @@ console.log(path.join(__dirname, '/../frontend/build'), 'resolve');
 
 app.use(express.static(path.resolve(__dirname, '../frontend/build')));
 
-app.use('/api/users', userRoute);
+app.use('/users', userRoute);
 
-app.get('/api/products', (req, res) => {
+app.get('/products', (req, res) => {
   res.send(data);
 })
 
 
-app.get('/api/products/:id', (req, res) => {
+app.get('/products/:id', (req, res) => {
   const {id} = req.params;
   id ? res.send(findProduct(id)) : res.status(404).send(null); 
   function findProduct(id){
