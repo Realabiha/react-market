@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import Cookie from 'js-cookie';
@@ -7,13 +7,17 @@ import './Checkout.css';
 
 const Checkout = props => {
   // STORE
-  const { list } = useSelector(state => state.shoppingCart);
+  const list = Cookie.get('cart') && JSON.parse(Cookie.get('cart')) || useSelector(state => state.shoppingCart).list;
   const dispatch = useDispatch();
 
   const userInfo = Cookie.get('user') && JSON.parse(Cookie.get('user')) || null;
 
   // HOOK
-  
+  useEffect(() => {
+    return () => {
+      // cleanup
+    }
+  }, [list])
 
   // EVENT
   const handleNumChange = ({e, id}) => {
@@ -55,9 +59,13 @@ const Checkout = props => {
     ? <div className="check-button-wrap">
       <div className="check-action-wrap">
         <h3>TOTAL ITEMS：{list.length}</h3>
-        <p className="total-price price">TOTAL PRICE：<small>￥</small><span>
-          {calcTotalPrice(list)}
-        </span></p>
+        <p className="total-price price">
+          TOTAL PRICE：
+          <small>￥</small>
+          <span>
+            {calcTotalPrice(list)}
+          </span>
+        </p>
         <Link to={userInfo ? '/pay' : '/login'}>
           <button className="primary">CHECK</button>
         </Link>
