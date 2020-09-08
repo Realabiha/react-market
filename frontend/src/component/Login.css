@@ -13,6 +13,12 @@
 .logo-img-wrap img{
   width: 25rem; 
 }
+.login-error-wrap{
+  width: 31rem;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
 form{
   display: flex;
   flex-direction: column;

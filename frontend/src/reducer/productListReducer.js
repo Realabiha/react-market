@@ -6,7 +6,7 @@ export default function productListReducer(state = initState, action){
   const {type, payload} = action;
   switch(type){
     case actionType.PRODUCT_LIST_REQUEST:
-      return state;
+      return {...state, products: null};
     case actionType.PRODUCT_LIST_SUCCESS:
       return {...state, products: payload.products};
     case actionType.PRODUCT_LIST_FAILURE:

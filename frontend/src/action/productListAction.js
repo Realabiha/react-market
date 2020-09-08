@@ -25,12 +25,20 @@ const fetchListFailure = error => {
 }
 
 // highorder function return a function --> dispatch => {// dispatch action}
-export const fetchProductList = _ => async (dispatch, getState) => {
+export const fetchProductList = ({category, keywords}) => async (dispatch, getState) => {
+  const query = createQueryStr({category, keywords});
+  console.log(query);
   try {
     dispatch(fetchListQuest());
-    const res = await axios.get('/products');
-    dispatch(fetchListSuccess(res.data.products));
+    const res = await axios.get(`/products${query}`);
+    dispatch(fetchListSuccess(res.data));
   } catch (error) {
     dispatch(fetchListFailure(error));
   }
+}
+
+function createQueryStr(obj){
+  return Object.keys(obj).reduce((init, key, index) => {
+    return init += `${obj[key] ? `${key}=${obj[key]}&` : ''}`;
+  }, '?')
 }

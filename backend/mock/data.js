@@ -7,7 +7,8 @@ export default {
       rating: 4.5,
       desc: '这是一个用了就爱上的好东西！',
       img: '/aside.jpg',
-      stock: 3
+      stock: 3,
+      category: 'Shirts',
     },
     {
       id: 2,
@@ -16,7 +17,8 @@ export default {
       rating: 4.5,
       desc: '这是一个用了就爱上的好东西！',
       img: '/aside.png',
-      stock: 5
+      stock: 5,
+      category: 'Pants'
     },
     {
       id: 3,
@@ -25,7 +27,8 @@ export default {
       rating: 4.5,
       desc: '这是一个用了就爱上的好东西！',
       img: '/logo192.png',
-      stock: 3
+      stock: 3,
+      category: 'Pants'
     },
     {
       id: 4,
@@ -34,7 +37,8 @@ export default {
       rating: 4.5,
       desc: '这是一个用了就爱上的好东西！',
       img: '/logo.png',
-      stock: 0
+      stock: 0,
+      category: 'Pants'
     }
   ]
 }

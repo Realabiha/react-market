@@ -7,7 +7,7 @@ import './Login.css';
 
 const Login = props => {
   // STORE
-  const {userInfo, error}= useSelector(state => state.userSignIn);
+  const {userInfo, error, msg}= useSelector(state => state.userSignIn);
   const dispatch = useDispatch();
 
   // EVENT
@@ -37,6 +37,12 @@ const Login = props => {
         <img src="/logo.png" alt="Amazon" title="首页"/>
       </Link>
     </div>
+    {error
+      ? <div className="login-error-wrap">
+        <p className="danger-action-warn">{msg}</p>
+      </div>
+      : null
+    }
     <form onSubmit={e => handleFormSubmit(e)}>
       <h1>Login in</h1>
       <label htmlFor="email">

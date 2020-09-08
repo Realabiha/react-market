@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Header from './component/Header';
 import Footer from './component/Footer';
@@ -21,9 +21,15 @@ function App() {
             render={ _ => <ProductDetail props={_} />}
           >
           </Route>
-          <Route path='/checkout'>
-            <Header />
-            <Checkout />
+          <Route 
+            path='/checkout'
+            render={ _ => {
+              return <>
+              <Header props={_}/>
+              <Checkout />
+              </>
+            }}
+          >
           </Route>
           <Route 
             path='/login' 
@@ -40,9 +46,14 @@ function App() {
           <Route 
             path='/' 
             exact={true}
+            render={_ => {
+              return <>
+              <Header props={_}/>
+
+              <Main />
+              </>
+            }}
           >
-            <Header />
-            <Main />
           </Route>
         </Switch>
         <Footer />

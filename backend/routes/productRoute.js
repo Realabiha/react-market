@@ -4,7 +4,12 @@ import data from '../mock/data';
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.send(data);
+  const {category = '', keywords = ''} = req.query;
+  let {products} = data;
+  products = products
+  .filter(p => p.category.includes(category))
+  .filter(p => p.name.includes(keywords) || p.desc.includes(keywords) || p.category.includes(keywords)); 
+  res.send(products);
 })
 
 

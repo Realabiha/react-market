@@ -12,7 +12,7 @@ router.post('/signin', async (req, res) => {
     res.send({name, email, token});
   }
   else
-  res.status(404).send('Invalid email or password!');
+  res.status(401).send('Invalid email or password!');
 })
 
 router.post('/register', async (req, res) => {
@@ -27,7 +27,7 @@ router.post('/register', async (req, res) => {
     const {name, email} = newUser;
     res.send({name, email, token});
   } catch (error) {
-    res.status(401).send(error.message);
+    res.status(401).send('Invalid email!');
   }
 })
 

@@ -19,11 +19,11 @@ const userSignInSuccess = userInfo => {
     }
   }
 }
-const userSignInFailure = error => {
+const userSignInFailure = msg => {
   return {
     type: actions.USER_SIGNIN_FAILURE,
     payload: {
-      error
+      msg
     }
   }
 }
@@ -59,11 +59,11 @@ const userRegisterSuccess = userInfo => {
     }
   }
 }
-const userRegisterFailure = error => {
+const userRegisterFailure = msg => {
   return {
     type: actions.USER_REGISTER_FAILURE,
     payload: {
-      error
+      msg
     }
   }
 }
@@ -79,4 +79,10 @@ export const register = ({name, email, password}) => async dispatch => {
     dispatch(userRegisterFailure(error.message));
   }
 
+}
+
+export const logOut = () => {
+  return {
+    type: actions.USER_LOGOUT_ACTION
+  }
 }

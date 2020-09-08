@@ -34,7 +34,7 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch){
   return {
     fetchData: _ => {
-      dispatch(fetchProductList());
+      dispatch(fetchProductList({}));
     }
   }
 }

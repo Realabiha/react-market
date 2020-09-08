@@ -1,68 +1,89 @@
-import React, {useEffect} from 'react';
-// eslint-disable-next-line
+import React, {useEffect, useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {Link} from 'react-router-dom';
+import {fetchProductList} from '../action/productListAction';
+import {logOut} from '../action/userSignInAction';
 import Cookie from 'js-cookie';
 import './Header.css'
 
-const handleToggleAsiide = function(e){
-  e.stopPropagation();
-  document.querySelector('.aside').classList.add('active');
-}
+
 
 export default props => {
   // STORE
   const {list} = useSelector(state => state.shoppingCart);
   const userInfo = 
   Cookie.get('user') && JSON.parse(Cookie.get('user')) || useSelector(state => state.userSignIn).userInfo;
-  // eslint-disable-next-line
-  // const dispatch = useDispatch(); 
-
+  const dispatch = useDispatch(); 
+  const [keywords, setKeywords] = useState('');
   // HOOK
   useEffect(() => {
 
     return () => {
       // cleanup
     }
-  }, [list])
+  }, [list, userInfo])
+
+  // EVENT
+  const handleToggleAsiide = function(e){
+    e.stopPropagation();
+    document.querySelector('.aside').classList.add('active');
+  }
+  const handleSearchProducts = ({props}) => {
+    props.match.path === '/checkout' && props.history.push('/'); 
+    dispatch(fetchProductList({keywords}));
+    setKeywords('');
+  }
+  const handleLogin = () => {
+    Cookie.remove('user');
+    Cookie.remove('cart');
+    userInfo && dispatch(logOut());
+  }
 
   // JSX
   return <header className="header">
-    {/* menu */}
     <div 
       className="header-menu-wrap"
       onClick={handleToggleAsiide}
     >
       ||||
     </div>
-       {/* logo */}
+
     <Link to="/">
       <div className="header-logo-wrap header-pointer">
           <img src="/logo.png" alt="Amazon" title="Amazon"/>
       </div>
     </Link>
-    {/* input */}
+
     <div className="header-search-wrap">
       <label>
-        <input type="text" placeholder="search what you want" />
-        <button className="primary">Search</button>
+        <input 
+          type="text" 
+          placeholder="search what you want" 
+          // onChange={e => keywords = e.target.value} 
+          onChange={e => setKeywords(e.target.value)}
+          value={keywords}
+        />
+        <button className="primary" onClick={e => handleSearchProducts(props)}>Search</button>
       </label>
     </div>
-    {/* basket */}
-    <Link to="checkout">
-      <div className="header-cart-wrap header-pointer">
-        <img src="/cart.png" alt="Cart" title="Cart" />
-        <span>{list.length}</span>
-      </div>
-    </Link>
 
-    {/* links */}
+    {userInfo 
+      ? <Link to="/checkout">
+        <div className="header-cart-wrap header-pointer">
+          <img src="/cart.png" alt="Cart" title="Cart" />
+          <span className="price">{list.length}</span>
+        </div>
+      </Link>
+      : null
+    }
+
     <Link to="/login">
-      <div className="header-login-wrap header-pointer">
-        <label>
-          <button className="primary light-warn">{userInfo ? userInfo.name : 'Login'}</button>
-        </label>
+      <div className="header-login-wrap header-pointer" onClick={handleLogin}>
+          <span className="light-warn">
+            hello {userInfo ? userInfo.name : 'Login'}
+          </span>
+        <img src={userInfo ? "/logout.png" : "login.png"} alt="login" />
       </div>
     </Link>
-   </header>
+  </header>
 }

@@ -41,12 +41,12 @@ const ProductDetail = ({props}) => {
 
   // JSX
   return <div className="container">
-    { product[0] ? <h1 className="product-detail-title">{product[0].name}详情</h1> : null}
+    { product ? <h1 className="product-detail-title">{product[0].name}详情</h1> : null}
     <div className="product-detail-back" onClick={handleGoBack}>
       <button className="primary">&lt; Go Back</button>
     </div>
     {
-      product[0]
+      product
       ? product.map((p, index) => (
         <div className="product-detail-wrap" key={index}>
           <div className="detail-img-wrap">
