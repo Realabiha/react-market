@@ -20,6 +20,8 @@ export default function shoppingCartReducer(state = initState, action){
       list = updateShoppingCart(payload, state);
       Cookie.set('cart', JSON.stringify(list));
       return {...state, list};
+    case actions.USER_LOGOUT_ACTION:
+      return {...state, list: []};
     default: return state;
   }
 }

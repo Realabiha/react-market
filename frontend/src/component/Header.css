@@ -1,9 +1,11 @@
 @media screen and (max-width: 1024px){
-  .header-menu-wrap,
-  .header-search-wrap button
-  {
+  .header-menu-wrap{
     display: none !important;
   }
+  .header-search-wrap button{
+    width: 4rem;
+  }
+
 }
 @media screen and (max-width: 414px){
   /* .header-search-wrap{

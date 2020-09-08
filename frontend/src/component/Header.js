@@ -3,6 +3,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {fetchProductList} from '../action/productListAction';
 import {logOut} from '../action/userSignInAction';
+import {cleanCart} from '../action/shoppingCartAction';
 import Cookie from 'js-cookie';
 import './Header.css'
 
@@ -37,6 +38,7 @@ export default props => {
     Cookie.remove('user');
     Cookie.remove('cart');
     userInfo && dispatch(logOut());
+    userInfo && dispatch(cleanCart());
   }
 
   // JSX
@@ -63,7 +65,7 @@ export default props => {
           onChange={e => setKeywords(e.target.value)}
           value={keywords}
         />
-        <button className="primary" onClick={e => handleSearchProducts(props)}>Search</button>
+        <button className="primary" onClick={e => handleSearchProducts(props)}>搜索</button>
       </label>
     </div>
 
@@ -80,7 +82,7 @@ export default props => {
     <Link to="/login">
       <div className="header-login-wrap header-pointer" onClick={handleLogin}>
           <span className="light-warn">
-            hello {userInfo ? userInfo.name : 'Login'}
+            {userInfo ? userInfo.name : 'Login'}
           </span>
         <img src={userInfo ? "/logout.png" : "login.png"} alt="login" />
       </div>

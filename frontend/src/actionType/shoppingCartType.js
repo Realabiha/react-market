@@ -3,3 +3,5 @@ export const DEL_CART_LIST = 'DEL_CART_LIST';
 export const PUT_CART_LIST = 'PUT_CART_LIST';
 
 export const RENDER_CART_LIST = 'RENDER_CART_LIST';
+
+export const USER_LOGOUT_ACTION = 'USER_LOGOUT_ACTION';

@@ -32,3 +32,9 @@ export const fetchProductInfo = ({id, num}) => async dispatch => {
   const res = await axios.get(`/products/${id}`);
   dispatch(addCartList({...res.data[0], num}))
 }
+
+export const cleanCart = () => {
+  return {
+    type: actions.USER_LOGOUT_ACTION
+  }
+}
